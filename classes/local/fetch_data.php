@@ -20,14 +20,17 @@
  * @copyright  Daniel Neis <danielneis@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 /**
  * Modified for use in MoodleBites for Developers Level 1
  * by Richard Jones & Justin Hunt.
  *
  * See: https://www.moodlebites.com/mod/page/view.php?id=24546
  */
+
 namespace tool_simpletool\local;
 defined('MOODLE_INTERNAL') || die();
+
 /**
  * Class to fetch data from the database
  *
@@ -71,6 +74,22 @@ class fetch_data {
                 ORDER BY b.blockname DESC";
 
         $data = $DB->get_records_sql($sql, ['clevel' => 80]);
+        return $data;
+    }
+
+    public static function collaborate_submission_data() {
+        global $DB;
+
+        $sql = "SELECT s.id, s.collaborateid, s.page, s.userid, s.submission,
+                       c.name, c.title, c.course,
+                       u.firstname, u.lastname
+                  FROM {collaborate_submissions} s
+                  JOIN {collaborate} c ON s.collaborateid = c.id
+                  JOIN {user} u ON s.userid = u.id
+                  WHERE u.deleted = 0
+                ";
+
+        $data = $DB->get_records_sql($sql);
         return $data;
     }
 }

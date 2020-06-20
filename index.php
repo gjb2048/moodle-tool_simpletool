@@ -27,7 +27,7 @@ use \tool_simpletool\local\fetch_data;
 
 require_once(__DIR__ . '/../../../config.php');
 
-$url = new moodle_url('/admin/tool/richardnz/index.php');
+$url = new moodle_url('/admin/tool/simpletool/index.php');
 $title = get_string('pluginname', 'tool_simpletool');
 
 // Setup the page.
@@ -38,8 +38,8 @@ $PAGE->set_title($title);
 $PAGE->set_heading(get_string('index_header', 'tool_simpletool'));
 
 // Get some data
-$data = fetch_data::user_data();
+$data = fetch_data::collaborate_submission_data();
 
 // Call the renderer to display the data.
 $renderer = $PAGE->get_renderer('tool_simpletool');
-$renderer->display_table($data);
+$renderer->display_submission_table($data);
