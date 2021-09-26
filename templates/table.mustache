@@ -16,7 +16,7 @@
 }}
 
 {{!
-    @template tool_simpletool/namechangepage
+    @template tool_simpletool/table
 
     Moodle renders a simple table of module names with links and edit button
 
@@ -27,32 +27,32 @@
     * none
 
     Example context (json):
-        {
+    {
          "headers" : ["heading1", "heading2", ...],
          "records" : [record1[item, item, ...], record2[item, item, ...], ...],
-        }
+    }
 }}
 
 <div class="card">
-  <div class="card-body">
-    <h2 class="card-title">{{# str }} table_header, tool_simpletool {{/ str }}</h2>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            {{#headers}}
-              <th>{{.}}</th>
-            {{/headers}}
-          </thead>
-          <tbody>
-            {{#rows}}
-              <tr class="danger">
-                <td>{{username}}</td>
-                <td>{{firstname}}</td>
-                <td>{{lastname}}</td>
-              </tr>
-            {{/rows}}
-          </tbody>
-        </table>
-      </div>
-  </div>
+    <div class="card-body">
+        <h2 class="card-title">{{# str }} table_header, tool_simpletool {{/ str }}</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                {{#headers}}
+                    <th>{{.}}</th>
+                {{/headers}}
+                </thead>
+                <tbody>
+                {{#rows}}
+                    <tr class="danger">
+                        <td>{{username}}</td>
+                        <td>{{firstname}}</td>
+                        <td>{{lastname}}</td>
+                    </tr>
+                {{/rows}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

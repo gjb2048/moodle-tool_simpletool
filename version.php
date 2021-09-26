@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * Defines the version and other meta-info about the plugin.
  *
  * @package tool_simpletool
  * @copyright 2018 Richard Jones <richardnz@outlook.com>

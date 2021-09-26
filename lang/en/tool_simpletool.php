@@ -16,19 +16,17 @@
 
 
 /**
- * English strings for tool Richardnz
+ * English strings for simpletool
  *
- * @package    mod_multipage
+ * @package    tool_simpletool
  * @copyright  2018 Richard Jones <richardnz@outlook.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 // General module strings
 $string['pluginname'] = 'A simple tool';
-$string['greeting'] = 'Hello World!';
 $string['index_header'] = 'Main page';
 $string['table_header'] = 'Users';
 

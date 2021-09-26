@@ -22,12 +22,14 @@
  * @see https://moodledev.moodle.school/mod/page/view.php?id=50
  */
 defined('MOODLE_INTERNAL') || die();
-function tool_simpletool_extend_navigation_course($navigation, $course,
-        $context) {
-  $navigation->add( get_string('pluginname', 'tool_simpletool'),
+function tool_simpletool_extend_navigation_course($navigation, $course, $context) {
+    $navigation->add(
+        get_string('pluginname', 'tool_simpletool'),
         new moodle_url('/admin/tool/simpletool/index.php',
-                ['id' => $course->id]),
+        ['id' => $course->id]),
         navigation_node::TYPE_SETTING,
-        get_string('pluginname', 'tool_simpletool'), 'simpletool',
-        new pix_icon('icon', '', 'tool_simpletool'));
+        get_string('pluginname', 'tool_simpletool'),
+        'simpletool',
+        new pix_icon('icon', '', 'tool_simpletool')
+    );
 }

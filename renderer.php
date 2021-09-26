@@ -15,24 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Custom renderer for output of data table
+ * Custom renderer for output of data table.
  *
- * @package    mod_simplelesson
+ * @package    tool_simpletool
  * @copyright  2019 Richard Jones <richardnz@outlook.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-tool_simpletool
  * @see https://github.com/justinhunt/moodle-tool_simpletool
  */
-use \tool_simpletool\local\debugging;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Renderer for collaborate mod.
+ * Renderer for simple tool.
  */
 class tool_simpletool_renderer extends plugin_renderer_base {
 
     public function display_table($records) {
-
         $data = new stdClass();
 
         // Table headers.
@@ -59,6 +57,5 @@ class tool_simpletool_renderer extends plugin_renderer_base {
         echo $this->output->header();
         echo $this->render_from_template('tool_simpletool/table', $data);
         echo $this->output->footer();
-
     }
 }

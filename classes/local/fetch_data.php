@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
  * tool_simpletool main file
  *
@@ -26,12 +27,15 @@
  *
  * See: https://www.moodlebites.com/mod/page/view.php?id=24546
  */
+
 namespace tool_simpletool\local;
+
 defined('MOODLE_INTERNAL') || die();
+
 /**
- * Class to fetch data from the database
+ * Class to fetch data from the database.
  *
- * @package block_superiframe
+ * @package tool_simpletool
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://moodle.org/mod/forum/discuss.php?d=330687
  */
@@ -40,22 +44,19 @@ class fetch_data {
     public static function user_data() {
         global $DB;
 
-        $data = $DB->get_records('user', ['deleted' => 0], '', 'username, firstname, lastname');
-
-        return $data;
+        return $DB->get_records('user', ['deleted' => 0], '', 'username, firstname, lastname');
     }
 
     public static function resource_data() {
         global $DB;
 
-        $sql =   "SELECT COUNT(l.id) COUNT, l.course, c.fullname coursename
-                    FROM {resource} l
-              INNER JOIN {course} c ON l.course = c.id
+        $sql = "SELECT COUNT(l.id) COUNT, l.course, c.fullname coursename
+                FROM {resource} l
+                INNER JOIN {course} c ON l.course = c.id
                 GROUP BY course
                 ORDER BY COUNT DESC";
 
-        $data = $DB->get_records_sql($sql);
-        return $data;
+        return $DB->get_records_sql($sql);
     }
 
     public static function block_data() {
@@ -69,7 +70,6 @@ class fetch_data {
                 WHERE x.contextlevel <= :clevel
                 ORDER BY b.blockname DESC";
 
-        $data = $DB->get_records_sql($sql, ['clevel' => 80]);
-        return $data;
+        return $DB->get_records_sql($sql, ['clevel' => 80]);
     }
 }

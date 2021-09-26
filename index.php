@@ -25,7 +25,7 @@
 
 use \tool_simpletool\local\fetch_data;
 
-require_once(__DIR__ . '/../../../config.php');
+require_once(__DIR__.'/../../../config.php');
 
 $url = new moodle_url('/admin/tool/simpletool/index.php');
 $title = get_string('pluginname', 'tool_simpletool');
@@ -37,7 +37,7 @@ $PAGE->set_pagelayout('report');
 $PAGE->set_title($title);
 $PAGE->set_heading(get_string('index_header', 'tool_simpletool'));
 
-// Get some data
+// Get some data.
 $data = fetch_data::user_data();
 
 // Call the renderer to display the data.
