@@ -27,6 +27,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 // General module strings
-$string['pluginname'] = 'Richard NZ tool';
+$string['pluginname'] = 'A simple tool';
 $string['greeting'] = 'Hello World!';
 $string['index_header'] = 'Main page';
+$string['table_header'] = 'Users';
+
+// Table headers.
+$string['username'] = 'Username';
+$string['firstname'] = 'First name';
+$string['lastname'] = 'Surname';

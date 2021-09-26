@@ -23,9 +23,11 @@
  * @see https://moodledev.moodle.school/mod/page/view.php?id=50
  */
 
+use \tool_simpletool\local\fetch_data;
+
 require_once(__DIR__ . '/../../../config.php');
 
-$url = new moodle_url('/admin/tool/richardnz/index.php');
+$url = new moodle_url('/admin/tool/simpletool/index.php');
 $title = get_string('pluginname', 'tool_simpletool');
 
 // Setup the page.
@@ -35,9 +37,9 @@ $PAGE->set_pagelayout('report');
 $PAGE->set_title($title);
 $PAGE->set_heading(get_string('index_header', 'tool_simpletool'));
 
-// Start output to browser.
-echo $OUTPUT->header();
-echo $OUTPUT->heading($title, 2);
-echo get_string('greeting', 'tool_simpletool');
+// Get some data
+$data = fetch_data::user_data();
 
-echo $OUTPUT->footer();
+// Call the renderer to display the data.
+$renderer = $PAGE->get_renderer('tool_simpletool');
+$renderer->display_table($data);

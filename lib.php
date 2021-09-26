@@ -13,20 +13,21 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Defines the version and other meta-info about the plugin
+ * Callback functions for tool_simpletool.
  *
  * @package tool_simpletool
  * @copyright 2018 Richard Jones <richardnz@outlook.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://moodledev.moodle.school/mod/page/view.php?id=50
  */
-
 defined('MOODLE_INTERNAL') || die();
-
-$plugin->component = 'tool_simpletool';
-$plugin->version = 2019212001;
-$plugin->release = 'v1.0';
-$plugin->requires = 2017111301;
-$plugin->maturity = MATURITY_ALPHA;
+function tool_simpletool_extend_navigation_course($navigation, $course,
+        $context) {
+  $navigation->add( get_string('pluginname', 'tool_simpletool'),
+        new moodle_url('/admin/tool/simpletool/index.php',
+                ['id' => $course->id]),
+        navigation_node::TYPE_SETTING,
+        get_string('pluginname', 'tool_simpletool'), 'simpletool',
+        new pix_icon('icon', '', 'tool_simpletool'));
+}
