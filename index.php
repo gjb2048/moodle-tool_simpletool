@@ -41,7 +41,8 @@ $PAGE->set_title($title);
 $PAGE->set_heading(get_string('index_header', 'tool_simpletool'));
 
 // Get some data.
-$data = fetch_data::collaborate_submission_data();
+$sorting = optional_param('sorting', 'name', PARAM_ALPHA);
+$data = fetch_data::collaborate_submission_data($sorting);
 
 // Call the renderer to display the data.
 $renderer = $PAGE->get_renderer('tool_simpletool');
