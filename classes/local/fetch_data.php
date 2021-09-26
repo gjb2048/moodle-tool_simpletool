@@ -70,8 +70,19 @@ class fetch_data {
         return $DB->get_records_sql($sql, ['clevel' => 80]);
     }
 
-    public static function collaborate_submission_data() {
+    public static function collaborate_submission_data($sorting) {
         global $DB;
+
+        switch ($sorting) {
+            case 'name' : $sorting = 'c.name';
+            break;
+            case 'title' : $sorting = 'c.title';
+            break;
+            case 'firstname' : $sorting = 'u.firstname';
+            break;
+            case 'lastname' : $sorting = 'u.lastname';
+            break;
+        }
 
         $sql = "SELECT s.id, s.collaborateid, s.page, s.userid, s.submission,
                        c.name, c.title, c.course,
@@ -79,7 +90,8 @@ class fetch_data {
                 FROM {collaborate_submissions} s
                 JOIN {collaborate} c ON s.collaborateid = c.id
                 JOIN {user} u ON s.userid = u.id
-                WHERE u.deleted = 0";
+                WHERE u.deleted = 0
+                ORDER BY $sorting ASC";
 
         return $DB->get_records_sql($sql);
     }
