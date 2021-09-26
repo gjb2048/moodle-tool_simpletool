@@ -28,8 +28,12 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'A simple tool';
 $string['index_header'] = 'Main page';
 $string['table_header'] = 'Users';
+$string['submissions_table_header'] = 'Collaborate submissions';
 
 // Table headers.
 $string['username'] = 'Username';
 $string['firstname'] = 'First name';
 $string['lastname'] = 'Surname';
+$string['collaborate'] = 'Collaborate';
+$string['title'] = 'Title';
+$string['submission'] = 'Submission';

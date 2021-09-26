@@ -79,4 +79,21 @@ class fetch_data {
 
         return $DB->get_records_sql($sql, ['clevel' => 80]);
     }
+
+    /**
+     * Get the submission data.
+     */
+    public static function collaborate_submission_data() {
+        global $DB;
+
+        $sql = "SELECT s.id, s.collaborateid, s.page, s.userid, s.submission,
+                       c.name, c.title, c.course,
+                       u.firstname, u.lastname
+                FROM {collaborate_submissions} s
+                JOIN {collaborate} c ON s.collaborateid = c.id
+                JOIN {user} u ON s.userid = u.id
+                WHERE u.deleted = 0";
+
+        return $DB->get_records_sql($sql);
+    }
 }

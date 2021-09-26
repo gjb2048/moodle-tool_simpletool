@@ -24,6 +24,8 @@
  * @see       https://github.com/justinhunt/moodle-tool_simpletool
  */
 
+require_once($CFG->dirroot . '/lib/filelib.php');
+
 /**
  * Renderer for simple tool.
  */
@@ -60,6 +62,53 @@ class tool_simpletool_renderer extends plugin_renderer_base {
         // Display the table.
         echo $this->output->header();
         echo $this->render_from_template('tool_simpletool/table', $data);
+        echo $this->output->footer();
+    }
+
+    /**
+     * Display the submission table.
+     *
+     * @param array $records Records to display.
+     */
+    public function display_submission_table($records) {
+
+        $data = new stdClass();
+
+        // Table headers.
+        $headers = [];
+
+        $headers[] = get_string('collaborate', 'tool_simpletool');
+        $headers[] = get_string('title', 'tool_simpletool');
+        $headers[] = get_string('firstname', 'tool_simpletool');
+        $headers[] = get_string('lastname', 'tool_simpletool');
+        $headers[] = get_string('submission', 'tool_simpletool');
+        $data->headers = $headers;
+
+        $data->rows = [];
+
+        // Table rows.
+        foreach ($records as $record) {
+            $row = [];
+            $row['name'] = $record->name;
+            $row['title'] = $record->title;
+            $row['firstname'] = $record->firstname;
+            $row['lastname'] = $record->lastname;
+
+            $cid = $record->collaborateid;
+            $sid = $record->id;
+            $courseid = $record->course;
+            $cm = get_coursemodule_from_instance('collaborate', $cid, $courseid, false, MUST_EXIST);
+            $context = context_module::instance($cm->id);
+            $submission = file_rewrite_pluginfile_urls($record->submission, 'pluginfile.php', $context->id,
+                'mod_collaborate', 'submission', $sid);
+            $row['submission'] = $submission;
+
+            $data->rows[] = $row;
+        }
+
+        // Display the table.
+        echo $this->output->header();
+        echo $this->render_from_template('tool_simpletool/submissions_table', $data);
         echo $this->output->footer();
     }
 }
