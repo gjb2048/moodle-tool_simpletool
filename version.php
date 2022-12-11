@@ -19,6 +19,7 @@
  *
  * @package tool_simpletool
  * @copyright 2018 Richard Jones <richardnz@outlook.com>
+ * @copyright 2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://moodledev.moodle.school/mod/page/view.php?id=50
  */
@@ -26,7 +27,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tool_simpletool';
-$plugin->version = 2019212001;
-$plugin->release = 'v1.0';
-$plugin->requires = 2017111301;
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->version = 2022121100;
+$plugin->requires  = 2022112800.00; // 4.1 (Build: 20221128).
+$plugin->supported = array(401, 401);
+$plugin->release = '401.1.0';
+$plugin->maturity = MATURITY_STABLE;

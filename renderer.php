@@ -23,7 +23,6 @@
  * @see https://github.com/moodlehq/moodle-tool_simpletool
  * @see https://github.com/justinhunt/moodle-tool_simpletool
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Renderer for simple tool.

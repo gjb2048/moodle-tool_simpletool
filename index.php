@@ -27,6 +27,8 @@ use \tool_simpletool\local\fetch_data;
 
 require_once(__DIR__.'/../../../config.php');
 
+require_admin();
+
 $url = new moodle_url('/admin/tool/simpletool/index.php');
 $title = get_string('pluginname', 'tool_simpletool');
 

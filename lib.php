@@ -21,7 +21,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://moodledev.moodle.school/mod/page/view.php?id=50
  */
-defined('MOODLE_INTERNAL') || die();
+
 function tool_simpletool_extend_navigation_course($navigation, $course, $context) {
     $navigation->add(
         get_string('pluginname', 'tool_simpletool'),

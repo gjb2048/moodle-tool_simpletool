@@ -30,8 +30,6 @@
 
 namespace tool_simpletool\local;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class to fetch data from the database.
  *
@@ -50,25 +48,24 @@ class fetch_data {
     public static function resource_data() {
         global $DB;
 
-        $sql = "SELECT COUNT(l.id) COUNT, l.course, c.fullname coursename
-                FROM {resource} l
-                INNER JOIN {course} c ON l.course = c.id
-                GROUP BY course
-                ORDER BY COUNT DESC";
+        $sql = "SELECT COUNT(l.id) COUNT, l.course, c.fullname coursename ".
+               "FROM {resource} l ".
+               "INNER JOIN {course} c ON l.course = c.id ".
+               "GROUP BY course ".
+               "ORDER BY COUNT DESC";
 
         return $DB->get_records_sql($sql);
     }
 
     public static function block_data() {
         global $DB;
-        $sql = "SELECT b.id, cat.id AS catid, cat.name AS catname,
-                b.blockname, c.shortname
-                FROM {context} x
-                JOIN {block_instances} b ON b.parentcontextid = x.id
-                JOIN {course} c ON c.id = x.instanceid
-                JOIN {course_categories} cat ON cat.id = c.category
-                WHERE x.contextlevel <= :clevel
-                ORDER BY b.blockname DESC";
+        $sql = "SELECT b.id, cat.id AS catid, cat.name AS catname, b.blockname, c.shortname ".
+               "FROM {context} x ".
+               "JOIN {block_instances} b ON b.parentcontextid = x.id ".
+               "JOIN {course} c ON c.id = x.instanceid ".
+               "JOIN {course_categories} cat ON cat.id = c.category ".
+               "WHERE x.contextlevel <= :clevel ".
+               "ORDER BY b.blockname DESC";
 
         return $DB->get_records_sql($sql, ['clevel' => 80]);
     }

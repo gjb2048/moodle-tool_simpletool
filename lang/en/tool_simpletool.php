@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-// General module strings
+// General plugin strings.
 $string['pluginname'] = 'A simple tool';
 $string['index_header'] = 'Main page';
 $string['table_header'] = 'Users';
