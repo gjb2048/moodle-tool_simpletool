@@ -19,10 +19,14 @@
  *
  * @package    tool_simpletool
  * @copyright  2019 Richard Jones <richardnz@outlook.com>
+ * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-tool_simpletool
  * @see https://github.com/justinhunt/moodle-tool_simpletool
  */
+
+require_once(__DIR__.'/../../../config.php');
+require_admin();
 
 require_once($CFG->dirroot . '/lib/filelib.php');
 
@@ -71,19 +75,19 @@ class tool_simpletool_renderer extends plugin_renderer_base {
 
         $header = get_string('collaborate', 'tool_simpletool');
         $url = new moodle_url($baseurl, ['sorting' => 'name']);
-        $headers['name'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['name'] = ['text' => $header, 'url' => $url->out(false)];
 
         $header = get_string('title', 'tool_simpletool');
         $url = new moodle_url($baseurl, ['sorting' => 'title']);
-        $headers['title'] = ['text' => $header, 'url'=> $url->out(false)];
-        
+        $headers['title'] = ['text' => $header, 'url' => $url->out(false)];
+
         $header = get_string('firstname', 'tool_simpletool');
         $url = new moodle_url($baseurl, ['sorting' => 'firstname']);
-        $headers['firstname'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['firstname'] = ['text' => $header, 'url' => $url->out(false)];
 
         $header = get_string('lastname', 'tool_simpletool');
         $url = new moodle_url($baseurl, ['sorting' => 'lastname']);
-        $headers['lastname'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['lastname'] = ['text' => $header, 'url' => $url->out(false)];
 
         $headers[] = get_string('submission', 'tool_simpletool');
 
