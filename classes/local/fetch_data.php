@@ -100,14 +100,12 @@ class fetch_data {
             break;
         }
 
-        $sql = "SELECT s.id, s.collaborateid, s.page, s.userid, s.submission,
-                       c.name, c.title, c.course,
-                       u.firstname, u.lastname
-                FROM {collaborate_submissions} s
-                JOIN {collaborate} c ON s.collaborateid = c.id
-                JOIN {user} u ON s.userid = u.id
-                WHERE u.deleted = 0
-                ORDER BY $sorting ASC";
+        $sql = "SELECT s.id, s.collaborateid, s.page, s.userid, s.submission, c.name, c.title, c.course, u.firstname, u.lastname ".
+               "FROM {collaborate_submissions} s ".
+               "JOIN {collaborate} c ON s.collaborateid = c.id ".
+               "JOIN {user} u ON s.userid = u.id ".
+               "WHERE u.deleted = 0 ".
+               "ORDER BY $sorting ASC";
 
         return $DB->get_records_sql($sql);
     }

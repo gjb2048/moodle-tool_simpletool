@@ -26,6 +26,9 @@
 
 use core\url;
 
+require_once(__DIR__.'/../../../config.php');
+require_admin();
+
 require_once($CFG->dirroot . '/lib/filelib.php');
 
 /**
@@ -83,19 +86,19 @@ class tool_simpletool_renderer extends plugin_renderer_base {
 
         $header = get_string('collaborate', 'tool_simpletool');
         $url = new url($baseurl, ['sorting' => 'name']);
-        $headers['name'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['name'] = ['text' => $header, 'url' => $url->out(false)];
 
         $header = get_string('title', 'tool_simpletool');
         $url = new url($baseurl, ['sorting' => 'title']);
-        $headers['title'] = ['text' => $header, 'url'=> $url->out(false)];
-        
+        $headers['title'] = ['text' => $header, 'url' => $url->out(false)];
+
         $header = get_string('firstname', 'tool_simpletool');
         $url = new url($baseurl, ['sorting' => 'firstname']);
-        $headers['firstname'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['firstname'] = ['text' => $header, 'url' => $url->out(false)];
 
         $header = get_string('lastname', 'tool_simpletool');
         $url = new url($baseurl, ['sorting' => 'lastname']);
-        $headers['lastname'] = ['text' => $header, 'url'=> $url->out(false)];
+        $headers['lastname'] = ['text' => $header, 'url' => $url->out(false)];
 
         $headers[] = get_string('submission', 'tool_simpletool');
 
