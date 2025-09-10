@@ -15,21 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * Index.
  *
- * @package    tool_simpletool
- * @copyright  2018 Richard Jones <richardnz@outlook.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://moodledev.moodle.school/mod/page/view.php?id=50
+ * @package   tool_simpletool
+ * @copyright 2018 Richard Jones <richardnz@outlook.com>
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @see       https://moodledev.moodle.school/mod/page/view.php?id=50
  */
 
-use \tool_simpletool\local\fetch_data;
+use tool_simpletool\local\fetch_data;
+use core\url;
 
 require_once(__DIR__.'/../../../config.php');
 
 require_admin();
 
-$url = new moodle_url('/admin/tool/simpletool/index.php');
+$url = new url('/admin/tool/simpletool/index.php');
 $title = get_string('pluginname', 'tool_simpletool');
 
 // Setup the page.

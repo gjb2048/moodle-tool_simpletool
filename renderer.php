@@ -17,11 +17,11 @@
 /**
  * Custom renderer for output of data table.
  *
- * @package    tool_simpletool
- * @copyright  2019 Richard Jones <richardnz@outlook.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-tool_simpletool
- * @see https://github.com/justinhunt/moodle-tool_simpletool
+ * @package   tool_simpletool
+ * @copyright 2019 Richard Jones <richardnz@outlook.com>
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @see       https://github.com/moodlehq/moodle-tool_simpletool
+ * @see       https://github.com/justinhunt/moodle-tool_simpletool
  */
 
 /**
@@ -29,22 +29,27 @@
  */
 class tool_simpletool_renderer extends plugin_renderer_base {
 
+    /**
+     * Display the table.
+     *
+     * @param array $records Records to display.
+     */
     public function display_table($records) {
         $data = new stdClass();
 
         // Table headers.
-        $headers = array();
+        $headers = [];
 
         $headers[] = get_string('username', 'tool_simpletool');
         $headers[] = get_string('firstname', 'tool_simpletool');
         $headers[] = get_string('lastname', 'tool_simpletool');
         $data->headers = $headers;
 
-        $data->rows = array();
+        $data->rows = [];
 
         // Table rows.
         foreach ($records as $record) {
-            $row = array();
+            $row = [];
             $row['username'] = $record->username;
             $row['firstname'] = $record->firstname;
             $row['lastname'] = $record->lastname;

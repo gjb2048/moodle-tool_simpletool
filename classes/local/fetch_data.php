@@ -12,20 +12,21 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * tool_simpletool main file
+ * tool_simpletool fetch data.
  *
  * @package   tool_simpletool
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @copyright Daniel Neis <danielneis@gmail.com>
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
+
 /**
  * Modified for use in MoodleBites for Developers Level 1
  * by Richard Jones & Justin Hunt.
  *
- * See: https://www.moodlebites.com/mod/page/view.php?id=24546
+ * See: https://www.moodlebites.com/mod/page/view.php?id=24546.
  */
 
 namespace tool_simpletool\local;
@@ -34,17 +35,23 @@ namespace tool_simpletool\local;
  * Class to fetch data from the database.
  *
  * @package tool_simpletool
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://moodle.org/mod/forum/discuss.php?d=330687
+ * @license https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @see     https://moodle.org/mod/forum/discuss.php?d=330687.
  */
 class fetch_data {
 
+    /**
+     * Get the user data.
+     */
     public static function user_data() {
         global $DB;
 
         return $DB->get_records('user', ['deleted' => 0], '', 'username, firstname, lastname');
     }
 
+    /**
+     * Get the resource data.
+     */
     public static function resource_data() {
         global $DB;
 
@@ -57,6 +64,9 @@ class fetch_data {
         return $DB->get_records_sql($sql);
     }
 
+    /**
+     * Get the block data.
+     */
     public static function block_data() {
         global $DB;
         $sql = "SELECT b.id, cat.id AS catid, cat.name AS catname, b.blockname, c.shortname ".

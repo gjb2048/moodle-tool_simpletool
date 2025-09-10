@@ -12,15 +12,14 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * English strings for simpletool
+ * British English strings for simpletool.
  *
- * @package    tool_simpletool
- * @copyright  2018 Richard Jones <richardnz@outlook.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @package   tool_simpletool
+ * @copyright 2018 Richard Jones <richardnz@outlook.com>
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 defined('MOODLE_INTERNAL') || die();

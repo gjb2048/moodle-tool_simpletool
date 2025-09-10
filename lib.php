@@ -12,16 +12,24 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
 /**
  * Callback functions for tool_simpletool.
  *
- * @package tool_simpletool
+ * @package   tool_simpletool
  * @copyright 2018 Richard Jones <richardnz@outlook.com>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://moodledev.moodle.school/mod/page/view.php?id=50
+ * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
+ * @see       https://moodledev.moodle.school/mod/page/view.php?id=50
  */
 
+/**
+ * Extend the course navigation.
+ *
+ * @param navigation_node $navigation The navigation node to extend.
+ * @param stdClass $course The course to object for the report.
+ * @param context $context The context of the course.
+ */
 function tool_simpletool_extend_navigation_course($navigation, $course, $context) {
     $navigation->add(
         get_string('pluginname', 'tool_simpletool'),
